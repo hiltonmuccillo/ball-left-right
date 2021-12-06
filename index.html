@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bola Left Right</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: black;
+        }
+        main {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            align-items: center;
+            justify-content: left;
+        }
+        .bola {
+            position: relative;
+            display: block; 
+            left: calc(50vw - 125px);           
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: white;
+            transition: ease 0.6s;            
+            cursor: pointer;
+        }
+        .bola-left {
+            position: absolute;            
+            left: 0;
+        }
+        .bola-right {
+            position: absolute;
+            left: calc(100vw - 250px);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="bola"></div>
+    </main>
+
+    <script>
+        var bola = document.querySelector(".bola");
+        bola.addEventListener('click', function(){
+            if (bola.className === "bola") {
+               bola.className += " bola-left";
+            } else if (bola.className === "bola bola-left") {
+                bola.className = "bola bola-right";
+            } else {
+                bola.className = "bola bola-left";
+            }
+           
+        });
+    </script>
+</body>
+</html>
